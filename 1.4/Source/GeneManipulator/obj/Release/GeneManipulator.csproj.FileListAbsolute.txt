@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GeneManipulator\1.4\Assemblies\GeneManipulator.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GeneManipulator\1.4\Source\GeneManipulator\obj\Release\GeneManipulator.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GeneManipulator\1.4\Source\GeneManipulator\obj\Release\GeneManipulator.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GeneManipulator\1.4\Source\GeneManipulator\obj\Release\GeneManipulator.dll

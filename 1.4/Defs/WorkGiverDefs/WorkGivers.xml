@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+
+    <!-- This work giver will tell the manipulator's assigned pawn to enter it. This means that if
+        the pawn can't enter it as soon as he's selected (i.e., the manipulator loses power), then
+        he should try again as soon as it becomes possible. -->
+    <WorkGiverDef>
+        <defName>Turn_WorkGiver_EnterGeneManipulator</defName>
+        <label>enter gene manipulator</label>
+        <giverClass>GeneManipulator.WorkGiver_EnterGeneManipulator</giverClass>
+        <verb>enter</verb>
+        <gerund>entering</gerund>
+        <priorityInType>91</priorityInType>
+        <requiredCapacities>
+            <li>Moving</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>Turn_WorkGiver_CarryToGeneManipulator</defName>
+        <label>carry to gene manipulator</label>
+        <giverClass>GeneManipulator.WorkGiver_CarryToGeneManipulator</giverClass>
+        <workType>Hauling</workType>
+        <verb>carry</verb>
+        <gerund>carrying</gerund>
+        <priorityInType>91</priorityInType>
+        <requiredCapacities>
+            <li>Moving</li>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+</Defs>

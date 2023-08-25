@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>Turn_Building_GeneManipulator</defName>
+        <label>gene manipulator</label>
+        <description>TODO</description>
+
+        <thingClass>GeneManipulator.Building_GeneManipulator</thingClass>
+
+        <containedPawnsSelectable>true</containedPawnsSelectable>
+        <tickerType>Normal</tickerType>
+
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.35</fillPercent>
+        <pathCost>42</pathCost>
+        <blockWind>true</blockWind>
+        <canOverlapZones>false</canOverlapZones>
+
+        <castEdgeShadows>true</castEdgeShadows>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <graphicData>
+            <!-- TODO -->
+            <texPath>Things/Building/Misc/GeneExtractor/GeneExtractor</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3, 2)</drawSize>
+            <shadowData>
+                <volume>(1.7, 0.8, 1.7)</volume>
+            </shadowData>
+        </graphicData>
+
+        <size>(3, 2)</size>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0, 0, 2)</interactionCellOffset>
+
+        <defaultPlacingRot>South</defaultPlacingRot>
+
+        <designationCategory>Biotech</designationCategory>
+        <uiOrder>2100</uiOrder>
+
+        <researchPrerequisites>
+            <!-- TODO -->
+            <li>Xenogermination</li>
+        </researchPrerequisites>
+
+        <building>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+            <buildingTags>
+                <li>Biotech</li>
+            </buildingTags>
+        </building>
+
+        <statBases>
+            <MaxHitPoints>350</MaxHitPoints>
+            <WorkToBuild>9000</WorkToBuild>
+            <Mass>85</Mass>
+            <Flammability>0.5</Flammability>
+        </statBases>
+
+        <costList>
+            <!-- TODO -->
+            <Steel>200</Steel>
+            <ComponentIndustrial>8</ComponentIndustrial>
+        </costList>
+
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+                <idlePowerDraw>50</idlePowerDraw>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                  <li>GeneBank</li>
+                  <li>GeneProcessor</li>
+                </linkableFacilities>
+            </li>
+
+            <!--=============== Treatments ===============-->
+            <li Class="GeneManipulator.CompProperties_GeneManipulatorTreatment">
+                <compClass>GeneManipulator.CompGeneManipulator_Treatment_RegisterXenotype</compClass>
+                <treatmentName>Register xenotype</treatmentName>
+                <treatmentDescription>Define a custom name and icon for the patient's xenotype.\n\nThis is mostly cosmetic, but means that the patient will no longer be considered a member of their original xenotype.</treatmentDescription>
+                <texPath>UI/Icons/GeneTreatments/RegisterXenotype</texPath>
+                <key>RegisterXenotype</key>
+            </li>
+            <li Class="GeneManipulator.CompProperties_GeneManipulatorTreatment">
+                <compClass>GeneManipulator.CompGeneManipulator_Treatment_ApplyGenepack</compClass>
+                <treatmentName>Apply genepack</treatmentName>
+                <treatmentDescription>Apply a genepack from a connected genebank to the patient. Cannot add archite genes, and will only remove genes that conflict with the new genepack.\n\nChanges the patient's xenotype to "custom". Applies the side-effects of a xenogerm at a shorter duration.</treatmentDescription>
+                <texPath>UI/Icons/GeneTreatments/ApplyGenepack</texPath>
+                <key>ApplyGenepack</key>
+                <cycleDurationTicks>40000</cycleDurationTicks> <!-- 16 hours -->
+            </li>
+            <li Class="GeneManipulator.CompProperties_GeneManipulatorTreatment">
+                <compClass>GeneManipulator.CompGeneManipulator_Treatment_ClearXenogerm</compClass>
+                <treatmentName>Clear xenogerm</treatmentName>
+                <treatmentDescription>Remove all xenogenes from the patient, leaving only their endogenes and returning them to their germline xenotype.\n\nWill remove archite genes.</treatmentDescription>
+                <texPath>UI/Icons/GeneTreatments/ClearXenogerm</texPath>
+                <key>ClearXenogerm</key>
+                <cycleDurationTicks>10000</cycleDurationTicks> <!-- 4 hours -->
+            </li>
+        </comps>
+
+        <modExtensions>
+            <li Class="GeneManipulator.GeneManipulatorTuning">
+                <baseComplexity>6</baseComplexity>
+
+                <pawnOffsetY>0.04</pawnOffsetY>
+
+                <insertIconPath>UI/Gizmos/InsertPawn</insertIconPath>
+                <cancelIconPath>UI/Designators/Cancel</cancelIconPath>
+
+                <!-- TODO -->
+                <postTreatmentHediff>Anesthetic</postTreatmentHediff>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>
